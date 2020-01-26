@@ -5,6 +5,7 @@ namespace KiloCall.Core.Model
     /// <summary>
     /// Пользователь.
     /// </summary>
+    [Serializable]
     public class User
     {
         #region Свойства

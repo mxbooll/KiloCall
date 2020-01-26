@@ -5,6 +5,7 @@ namespace KiloCall.Core.Model
     /// <summary>
     /// Пол
     /// </summary>
+    [Serializable]
     public class Gender
     {
         /// <summary>
