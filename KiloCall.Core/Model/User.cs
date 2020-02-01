@@ -17,12 +17,12 @@ namespace KiloCall.Core.Model
         /// <summary>
         /// Пол.
         /// </summary>
-        public Gender Gender { get; }
+        public Gender Gender { get; set; }
 
         /// <summary>
         /// Дата рожддения.
         /// </summary>
-        public DateTime BirthDay { get; }
+        public DateTime BirthDay { get; set; }
 
         /// <summary>
         /// Вес.
@@ -32,7 +32,19 @@ namespace KiloCall.Core.Model
         /// <summary>
         /// Рост.
         /// </summary>
-        public double Height { get; set; } 
+        public double Height { get; set; }
+
+        //DateTime nowDate = DateTime.Today;
+        //int age = nowDate.Year - BirthDay.Year;
+        //if(BirthDay > nowDate.AddYears(-age)) age--;
+
+        public int Age 
+        {
+            get 
+            {
+                return DateTime.Now.Year - BirthDay.Year; 
+            }
+        }
         #endregion
 
         /// <summary>
@@ -80,9 +92,19 @@ namespace KiloCall.Core.Model
             Height = height;
         }
 
+        public User(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new ArgumentNullException("Имя пользователя не может быть пустым или null", nameof(name));
+            }
+
+            Name = name;
+        }
+
         public override string ToString()
         {
-            return Name;
+            return Name + " " + Age;
         }
     }
 }

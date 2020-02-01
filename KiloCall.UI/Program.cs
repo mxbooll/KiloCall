@@ -12,20 +12,54 @@ namespace KiloCall.UI
             Console.Write("Введите имя пользователя: ");
             var name = Console.ReadLine();
 
-            Console.Write("Введите пол: ");
-            var gender = Console.ReadLine();
+            var userController = new UserController(name);
+            if (userController.IsNewUser)
+            {
+                Console.Write("Введите пол: ");
+                var gender = Console.ReadLine();
+                var birthDate = ParseDateTime();
+                var weight = ParseDouble("вес");
+                var height = ParseDouble("рост");
 
-            Console.Write("Введите дату рождения: ");
-            var birthday = DateTime.Parse(Console.ReadLine()); // TODO: переписать
+                userController.SetNewUserData(gender, birthDate, weight, height);
+            }
+            Console.WriteLine(userController.CurrentUser);
+            Console.ReadLine();
+        }
 
-            Console.Write("Введите вес: ");
-            var weight = double.Parse(Console.ReadLine());
+        private static DateTime ParseDateTime()
+        {
+            DateTime birthDate;
+            while (true)
+            {
+                Console.Write("Введите дату рождения (dd.MM.yyyy): ");
+                if (DateTime.TryParse(Console.ReadLine(), out birthDate))
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Неверный формат даты рождения");
+                }
+            }
 
-            Console.Write("Введите рост: ");
-            var height = double.Parse(Console.ReadLine());
+            return birthDate;
+        }
 
-            var userController = new UserController(name, gender, birthday, weight, height);
-            userController.Save();
+        private static double ParseDouble(string name) 
+        {
+            while (true)
+            {
+                Console.Write($"Введите {name}: ");
+                if (double.TryParse(Console.ReadLine(), out double value))
+                {
+                    return value;                    
+                }
+                else
+                {
+                    Console.WriteLine($"Неверный формат для {name}");
+                }
+            }
         }
     }
 }
