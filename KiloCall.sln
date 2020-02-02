@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KiloCall.Core", "KiloCall.Core\KiloCall.Core.csproj", "{7F629318-0F8F-4999-92E9-8FD9024C5E94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KiloCall.Core", "KiloCall.Core\KiloCall.Core.csproj", "{7F629318-0F8F-4999-92E9-8FD9024C5E94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KiloCall.UI", "KiloCall.UI\KiloCall.UI.csproj", "{8E080A71-66A0-43BB-85F7-9EAF5BDB43AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KiloCall.UI", "KiloCall.UI\KiloCall.UI.csproj", "{8E080A71-66A0-43BB-85F7-9EAF5BDB43AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KiloCall.CoreTests", "KiloCall.CoreTests\KiloCall.CoreTests.csproj", "{FF9C562B-C319-4E58-B37D-7B4D8D052F5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{8E080A71-66A0-43BB-85F7-9EAF5BDB43AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E080A71-66A0-43BB-85F7-9EAF5BDB43AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E080A71-66A0-43BB-85F7-9EAF5BDB43AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF9C562B-C319-4E58-B37D-7B4D8D052F5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF9C562B-C319-4E58-B37D-7B4D8D052F5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF9C562B-C319-4E58-B37D-7B4D8D052F5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF9C562B-C319-4E58-B37D-7B4D8D052F5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
