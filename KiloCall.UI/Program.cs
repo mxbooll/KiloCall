@@ -1,6 +1,8 @@
 ﻿using KiloCall.Core.Controller;
 using KiloCall.Core.Model;
 using System;
+using System.Globalization;
+using System.Resources;
 
 namespace KiloCall.UI
 {
@@ -8,9 +10,12 @@ namespace KiloCall.UI
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Вас приветствует приложение KiloCall");
+            var culture = CultureInfo.CreateSpecificCulture("en-us");
+            var resourceManager = new ResourceManager("KiloCall.UI.Languages.Messages", typeof(Program).Assembly);
 
-            Console.Write("Введите имя пользователя: ");
+            Console.WriteLine(resourceManager.GetString("Hello", culture));
+
+            Console.Write(resourceManager.GetString("EnterName", culture));
             var name = Console.ReadLine();
 
             var userController = new UserController(name);
