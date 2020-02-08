@@ -12,8 +12,6 @@ namespace KiloCall.Core.Controller
     /// </summary>
     public class UserController : BaseController
     {
-        private const string USER_FILE_NAME = "user.dat";
-
         /// <summary>
         /// Пользователь приложения.
         /// </summary>
@@ -52,7 +50,7 @@ namespace KiloCall.Core.Controller
         /// <returns></returns>
         private List<User> GetUsersData()
         {
-            return Load<List<User>>(USER_FILE_NAME) ?? new List<User>();
+            return Load<User>() ?? new List<User>();
         }
 
         public void SetNewUserData(string genderName, DateTime birthDate, double weight = 1, double height = 1)
@@ -70,7 +68,7 @@ namespace KiloCall.Core.Controller
         /// </summary>
         public void Save()
         {
-            Save(USER_FILE_NAME, Users);
+            Save(Users);
         }
     }
 }

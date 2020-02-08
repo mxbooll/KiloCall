@@ -1,7 +1,9 @@
 ﻿using KiloCall.Core.Controller;
 using KiloCall.Core.Model;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Globalization;
+using System.IO;
 using System.Resources;
 
 namespace KiloCall.UI
@@ -10,7 +12,17 @@ namespace KiloCall.UI
     {
         static void Main(string[] args)
         {
-            var culture = CultureInfo.CreateSpecificCulture("en-us");
+            //#region Подключение к БД
+            //var builder = new ConfigurationBuilder()
+            //                .SetBasePath(Directory.GetCurrentDirectory())
+            //                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+
+            //IConfigurationRoot configuration = builder.Build();
+
+            //Console.WriteLine(configuration.GetConnectionString("DBConnection"));
+            //#endregion
+
+            var culture = CultureInfo.CreateSpecificCulture("ru-ru");
             var resourceManager = new ResourceManager("KiloCall.UI.Languages.Messages", typeof(Program).Assembly);
 
             Console.WriteLine(resourceManager.GetString("Hello", culture));
@@ -54,7 +66,7 @@ namespace KiloCall.UI
                         break;
                     case ConsoleKey.A:
                         var exercise = EnterExercise();
-                        exerciseController.Add(exercise.Activity,exercise.Begin, exercise.End);
+                        exerciseController.Add(exercise.Activity, exercise.Begin, exercise.End);
 
                         foreach (var item in exerciseController.Exercises)
                         {
@@ -80,7 +92,7 @@ namespace KiloCall.UI
             var end = ParseDateTime("окончание упражнения");
 
             var activity = new Activity(name, energy);
-            return (begin, end, activity); 
+            return (begin, end, activity);
         }
 
         private static (Food Food, double Weight) EnterEating()
